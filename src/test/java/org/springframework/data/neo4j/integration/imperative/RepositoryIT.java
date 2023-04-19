@@ -1941,7 +1941,7 @@ class RepositoryIT {
 					assertThat(record.containsKey("n")).isTrue();
 					Node node = record.get("n").asNode();
 
-					assertThat(IdentitySupport.getElementId(node)).isEqualTo(savedPerson.getId());
+					assertThat(TestIdentitySupport.getInternalId(node)).isEqualTo(savedPerson.getId());
 					assertThat(node.get("first_name").asString()).isEqualTo(savedPerson.getFirstName());
 					assertThat(node.get("nullable").asString()).isEqualTo(savedPerson.getNullable());
 					assertThat(node.get("things").asList()).isEmpty();
@@ -2147,7 +2147,7 @@ class RepositoryIT {
 
 				assertThat(record.containsKey("n")).isTrue();
 				Node rootNode = record.get("n").asNode();
-				assertThat(savedPerson.getId()).isEqualTo(IdentitySupport.getElementId(rootNode));
+				assertThat(savedPerson.getId()).isEqualTo(TestIdentitySupport.getInternalId(rootNode));
 				assertThat(savedPerson.getName()).isEqualTo("Freddie");
 
 				List<List<Object>> petsWithHobbies = record.get("petsWithHobbies").asList(Value::asList);
@@ -2208,7 +2208,7 @@ class RepositoryIT {
 
 				assertThat(record.containsKey("n")).isTrue();
 				Node rootNode = record.get("n").asNode();
-				assertThat(savedPerson.getId()).isEqualTo(IdentitySupport.getElementId(rootNode));
+				assertThat(savedPerson.getId()).isEqualTo(TestIdentitySupport.getInternalId(rootNode));
 				assertThat(savedPerson.getName()).isEqualTo("Freddie");
 
 				List<List<Object>> petsWithHobbies = record.get("petsWithHobbies").asList(Value::asList);
@@ -2266,7 +2266,7 @@ class RepositoryIT {
 
 				assertThat(record.containsKey("n")).isTrue();
 				Node rootNode = record.get("n").asNode();
-				assertThat(savedPerson.getId()).isEqualTo(IdentitySupport.getElementId(rootNode));
+				assertThat(savedPerson.getId()).isEqualTo(TestIdentitySupport.getInternalId(rootNode));
 				assertThat(savedPerson.getName()).isEqualTo("Freddie");
 
 				assertThat(record.get("hobbies").asList(entry -> entry.asNode().get("name").asString()))
@@ -2309,7 +2309,7 @@ class RepositoryIT {
 
 				assertThat(record.containsKey("n")).isTrue();
 				Node rootNode = record.get("n").asNode();
-				assertThat(savedPerson.getId()).isEqualTo(IdentitySupport.getElementId(rootNode));
+				assertThat(savedPerson.getId()).isEqualTo(TestIdentitySupport.getInternalId(rootNode));
 				assertThat(savedPerson.getName()).isEqualTo("Freddie");
 
 				assertThat(record.get("hobbies").asList(entry -> entry.asNode().get("name").asString()))
